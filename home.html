@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Furniro — Home</title>
+  <link rel="stylesheet" href="home.css"/>
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <header class="header">
+    <div class="container header-row">
+      <a href="home.html" class="brand">
+        <img src="Images/Meubel House_Logos-05.png" alt="Furniro Logo" class="logo-img">
+        <span class="brand-text">Furniro</span>
+      </a>
+
+      <nav class="nav" id="mainNav" aria-label="Primary">
+        <a href="home.html" class="nav-link active">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="actions">
+        <button class="icon-btn" aria-label="Account">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M4 20a8 8 0 0 1 16 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <button class="icon-btn" aria-label="Search">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M20 20l-3.5-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <button class="icon-btn cart" aria-label="Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="9" cy="20" r="1.4" fill="currentColor"/>
+            <circle cx="17" cy="20" r="1.4" fill="currentColor"/>
+            <path d="M3 4h2l2 10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-6H6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="badge" id="cartCount">0</span>
+        </button>
+
+        <button class="hamburger" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-card">
+        <span class="hero-kicker">New Arrival</span>
+        <h1 class="hero-title">Discover Our<br>New Collection</h1>
+        <p class="hero-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
+        <a href="shop.html" class="btn-primary">Buy Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Browse The Range ===== -->
+  <section class="range" aria-labelledby="range-title">
+    <div class="container">
+      <header class="range-head">
+        <h2 id="range-title">Browse The Range</h2>
+        <p class="range-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </header>
+
+      <div class="range-grid">
+        <a href="#" class="range-card">
+          <img src="Images/image 106.png" alt="Dining category">
+          <h3>Dining</h3>
+        </a>
+        <a href="#" class="range-card">
+          <img src="Images/image 100.png" alt="Living category">
+          <h3>Living</h3>
+        </a>
+        <a href="#" class="range-card">
+          <img src="Images/image 101.png" alt="Bedroom category">
+          <h3>Bedroom</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Our Products ===== -->
+  <section class="products" aria-labelledby="products-title">
+    <div class="container">
+      <header class="products-head">
+        <h2 id="products-title">Our Products</h2>
+      </header>
+      <div id="products-grid" class="products-grid" role="list"></div>
+    </div>
+  </section>
+
+  <!-- ===== Rooms Inspiration ===== -->
+  <section class="rooms" aria-labelledby="rooms-title">
+    <div class="container rooms-grid">
+      <div class="rooms-copy">
+        <h2 id="rooms-title">50+ Beautiful rooms inspiration</h2>
+        <p>Our designer already made a lot of beautiful prototype of rooms that inspire you</p>
+        <a href="shop.html" class="btn-primary">Explore More</a>
+      </div>
+
+      <div class="rooms-slider">
+        <div class="r-track" id="roomsTrack"></div>
+        <button class="r-nav r-prev" id="roomsPrev" aria-label="Previous">‹</button>
+        <button class="r-nav r-next" id="roomsNext" aria-label="Next">›</button>
+        <div class="r-dots" id="roomsDots" role="tablist" aria-label="Room slides"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h2 class="footer-logo">Furniro.</h2>
+        <p>400 University Drive Suite 200 Coral Gables, FL 33134 EGY</p>
+      </div>
+      <div class="footer-col">
+        <h3>Links</h3>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="#">Payment Options</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Privacy Policies</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Newsletter</h3>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter Your Email Address" required>
+          <button type="submit">SUBSCRIBE</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Furniro. All rights reserved.</p></div>
+  </footer>
+
+  <!-- ===== Cart overlay + drawer ===== -->
+  <div id="cartOverlay" class="cart-overlay" hidden></div>
+  <aside id="cartDrawer" class="cart-drawer" aria-hidden="true">
+    <header class="cart-header">
+      <h3>Your Cart</h3>
+      <button id="cartClose" class="cart-close" aria-label="Close">×</button>
+    </header>
+    <div id="cartItems" class="cart-items"></div>
+    <footer class="cart-footer">
+      <div class="cart-total"><span>Total</span><strong id="cartTotal">$0.00</strong></div>
+      <div class="cart-actions">
+        <button id="cartClear" class="btn-outline">Clear</button>
+        <button id="cartCheckout" class="btn-primary">Checkout</button>
+      </div>
+    </footer>
+  </aside>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="home.js"></script>
+</body>
+</html>

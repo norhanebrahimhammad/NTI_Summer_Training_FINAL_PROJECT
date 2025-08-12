@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Furniro — About</title>
+  <link rel="stylesheet" href="home.css"/>
+  <style>
+    /* About-only tweaks */
+    .sub-hero {
+      /* background: url('Images/image\ 100.png') center/cover no-repeat; */
+      padding: 70px 0;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .sub-hero h1 { margin:0; font-size:clamp(28px,4vw,40px); font-weight:800; color:#2b2b2b; }
+    .lead { color: var(--muted); max-width: 760px; margin: 8px auto 0; }
+    .about-wrap { padding: 28px 0 36px; }
+    .split {
+      display:grid; gap:26px;
+      grid-template-columns: 1.1fr 1fr;
+      align-items:center;
+    }
+    .imgbox { border:1px solid var(--border); border-radius:16px; overflow:hidden; background:#fff }
+    .imgbox img { width:100%; display:block; }
+    .card {
+      background:#fff; border:1px solid var(--border); border-radius: 14px; padding: 18px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.04);
+    }
+    .stats { display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:16px; margin-top: 18px; }
+    .stat { background:#fff; border:1px solid var(--border); border-radius:12px; padding: 16px; text-align:center; }
+    .stat h3 { margin:0; font-size: 28px; }
+    .stat p { margin:6px 0 0; color: var(--muted); font-size: 14px; }
+    .values { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:16px; margin-top: 18px; }
+    .value { background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; }
+    .value h4{ margin:0 0 6px; }
+    .timeline { display:grid; gap:12px; margin-top:18px; }
+    .tl-item { display:grid; grid-template-columns: 120px 1fr; gap:12px; align-items:start; }
+    .tl-item time { font-weight:700; }
+    .cta {
+      margin-top: 26px; display:flex; gap:12px; flex-wrap:wrap;
+    }
+    .btn-primary { background:#B88E2F; color:#fff; border:none; border-radius:10px; padding:10px 16px; cursor:pointer; }
+    .btn-outline { background:#fff; color:#111; border:1px solid var(--border); border-radius:10px; padding:10px 16px; cursor:pointer; }
+    .benefits {
+      background:#fff7e8; margin-top: 28px; padding: 20px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+    }
+    .benefit-row { display:grid; gap:18px; grid-template-columns: repeat(4, minmax(0,1fr)); align-items:center; }
+    .benefit { display:flex; gap:12px; align-items:center; }
+    .benefit .icon { width:46px; height:46px; border-radius:12px; border:1px solid var(--border); display:grid; place-items:center; background:#fff; }
+    .benefit h4{ margin:0; font-size:16px } .benefit p{ margin:0; color:var(--muted); font-size:14px }
+    @media (max-width: 980px){
+      .split{ grid-template-columns: 1fr; }
+      .stats{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .values{ grid-template-columns: 1fr; }
+      .tl-item{ grid-template-columns: 1fr; }
+      .benefit-row{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-row">
+      <a href="home.html" class="brand">
+        <img src="Images/Meubel House_Logos-05.png" alt="Furniro Logo" class="logo-img">
+        <span class="brand-text">Furniro</span>
+      </a>
+
+      <nav class="nav" id="mainNav" aria-label="Primary">
+        <a href="home.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="actions">
+        <button class="icon-btn" aria-label="Account">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M4 20a8 8 0 0 1 16 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <button class="hamburger" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="sub-hero">
+    <div class="container">
+      <h1>About Furniro</h1>
+      <p class="lead">We design furniture that blends comfort, craft, and character — made to last and made for living.</p>
+    </div>
+  </section>
+
+  <!-- About content -->
+  <section class="about-wrap">
+    <div class="container split">
+      <div class="card">
+        <h2 style="margin-top:0">Our Story</h2>
+        <p>Founded in 2015, Furniro began as a small workshop with a big belief: good design should be accessible and sustainable. What started with a handful of chairs now spans full-room collections — each piece designed in-house and crafted with responsibly sourced materials.</p>
+        <div class="timeline">
+          <div class="tl-item"><time>2016</time><div>First collection launches with 6 core pieces.</div></div>
+          <div class="tl-item"><time>2019</time><div>Opened our Coral Gables design studio.</div></div>
+          <div class="tl-item"><time>2022</time><div>Introduced outdoor + lighting lines.</div></div>
+          <div class="tl-item"><time>2024</time><div>Hit 100k happy customers and expanded support 24/7.</div></div>
+        </div>
+        <div class="cta">
+          <a href="shop.html" class="btn-primary">Shop the collection</a>
+          <a href="contact.html" class="btn-outline">Contact us</a>
+        </div>
+      </div>
+      <div class="imgbox">
+        <img src="Images/scandinavian-interior-mockup-wall-decal-background 1 (1).png" alt="Furniro studio and workshop">
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="stats">
+        <div class="stat"><h3>100K+</h3><p>Customers</p></div>
+        <div class="stat"><h3>450+</h3><p>Products</p></div>
+        <div class="stat"><h3>2 yrs</h3><p>Warranty on most items</p></div>
+        <div class="stat"><h3>98%</h3><p>On‑time deliveries</p></div>
+      </div>
+
+      <div class="values">
+        <div class="value">
+          <h4>Design-first</h4>
+          <p>We obsess over details — from silhouette to stitching — to build pieces people love.</p>
+        </div>
+        <div class="value">
+          <h4>Responsible materials</h4>
+          <p>We prioritize FSC-certified woods, low‑VOC finishes, and recyclable packaging.</p>
+        </div>
+        <div class="value">
+          <h4>Service that cares</h4>
+          <p>Free shipping over $150 and friendly support that actually answers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="benefits" aria-label="Store benefits">
+    <div class="container benefit-row">
+      <div class="benefit"><div class="icon">🏆</div><div><h4>High Quality</h4><p>crafted from top materials</p></div></div>
+      <div class="benefit"><div class="icon">🛡️</div><div><h4>Warranty Protection</h4><p>over 2 years</p></div></div>
+      <div class="benefit"><div class="icon">🚚</div><div><h4>Free Shipping</h4><p>order over $150</p></div></div>
+      <div class="benefit"><div class="icon">💬</div><div><h4>24 / 7 Support</h4><p>dedicated support</p></div></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h2 class="footer-logo">Furniro.</h2>
+        <p>400 University Drive Suite 200 Coral Gables, FL 33134 EGY</p>
+      </div>
+      <div class="footer-col">
+        <h3>Links</h3>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="#">Payment Options</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Privacy Policies</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Newsletter</h3>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter Your Email Address" required>
+          <button type="submit">SUBSCRIBE</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Furniro. All rights reserved.</p></div>
+  </footer>
+
+  <script src="home.js"></script>
+</body>
+</html>

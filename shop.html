@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Furniro — Shop</title>
+  <link rel="stylesheet" href="home.css"/>
+  <style>
+    /* --- Shop-only tweaks --- */
+    :root{
+      --chip:#f3f4f6;
+      --chip-t:#374151;
+    }
+    .sub-hero {
+      background: url('images/checkout-hero.jpg') center/cover no-repeat;
+      padding: 70px 0;
+      text-align: center;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+    .sub-hero h1 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      color: #2b2b2b;
+      text-shadow: 0 2px 10px rgba(0,0,0,.08);
+    }
+    .shopbar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: center;
+      margin: 18px 0 8px;
+    }
+    .shopbar .count { color: var(--muted); }
+    .shopbar .controls { display:flex; gap:10px; align-items:center; flex-wrap: wrap;}
+    .shopbar select, .shopbar input[type="search"] {
+      height: 40px; border:1px solid var(--border); border-radius: 10px; padding: 0 12px;
+      outline: none;
+    }
+    .shopbar input[type="search"] { width: min(360px, 60vw); }
+    .filters {
+      display:flex; gap:12px; align-items:center; flex-wrap:wrap;
+      padding: 12px; background:#fff; border:1px solid var(--border); border-radius: 12px;
+    }
+    .chip {
+      background: var(--chip);
+      color: var(--chip-t);
+      border-radius: 999px;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      user-select:none;
+    }
+    .chip.active { outline:2px solid #111827; background:#fff; }
+    .filters label { display:flex; gap:6px; align-items:center;}
+    .filters input[type="number"]{ width: 110px; height: 38px; border:1px solid var(--border); border-radius: 8px; padding: 0 8px;}
+    .products { padding-top: 16px; }
+    .pager { display:flex; justify-content:center; align-items:center; gap:10px; margin:24px 0 8px; }
+    .pager button {
+      border:1px solid var(--border); background:#fff; border-radius:8px; padding:8px 12px; cursor:pointer;
+    }
+    .pager .info { color: var(--muted); }
+    /* benefits section */
+    .benefits {
+      background:#fff7e8;
+      margin-top: 32px;
+      padding: 22px 0;
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+    }
+    .benefit-row {
+      display:grid; gap:18px;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      align-items:center;
+    }
+    .benefit {
+      display:flex; gap:12px; align-items:center; justify-content:flex-start;
+    }
+    .benefit .icon {
+      width:46px; height:46px; border-radius:12px; border:1px solid var(--border); display:grid; place-items:center; background:#fff;
+    }
+    .benefit h4 { margin:0; font-size:16px; }
+    .benefit p  { margin:0; color:var(--muted); font-size:14px; }
+    @media (max-width: 900px){
+      .benefit-row{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== Header (same as Home) ===== -->
+  <header class="header">
+    <div class="container header-row">
+      <a href="home.html" class="brand">
+        <img src="Images/Meubel House_Logos-05.png" alt="Furniro Logo" class="logo-img">
+        <span class="brand-text">Furniro</span>
+      </a>
+
+      <nav class="nav" id="mainNav" aria-label="Primary">
+        <a href="home.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link active">Shop</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="actions">
+        <button class="icon-btn" aria-label="Account">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M4 20a8 8 0 0 1 16 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <button class="icon-btn" aria-label="Search global">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M20 20l-3.5-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <button class="icon-btn cart" aria-label="Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="9" cy="20" r="1.4" fill="currentColor"/>
+            <circle cx="17" cy="20" r="1.4" fill="currentColor"/>
+            <path d="M3 4h2l2 10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-6H6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="badge" id="cartCount">0</span>
+        </button>
+
+        <button class="hamburger" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Sub hero ===== -->
+  <section class="sub-hero">
+    <div class="container">
+      <h1>Shop</h1>
+    </div>
+  </section>
+
+  <!-- ===== Products ===== -->
+  <section class="products" aria-labelledby="products-title">
+    <div class="container">
+      <header class="products-head">
+        <h2 id="products-title">All Products</h2>
+      </header>
+
+      <!-- toolbar -->
+      <div class="shopbar">
+        <div class="count"><span id="countNum">0</span> items</div>
+        <div class="controls">
+          <input id="searchBox" type="search" placeholder="Search products">
+          <label>
+            <span class="sr-only">Sort</span>
+            <select id="sortSel">
+              <option value="default">Sort: Default</option>
+              <option value="price-asc">Price: Low → High</option>
+              <option value="price-desc">Price: High → Low</option>
+              <option value="name-asc">Name: A → Z</option>
+              <option value="name-desc">Name: Z → A</option>
+            </select>
+          </label>
+          <label>
+            <span class="sr-only">Per page</span>
+            <select id="pageSizeSel">
+              <option value="6">6 / page</option>
+              <option value="9">9 / page</option>
+              <option value="12" selected>12 / page</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <!-- filters -->
+      <div class="filters" id="filters">
+        <strong>Filter:</strong>
+        <div class="chip" data-cat="all" aria-pressed="true">All</div>
+        <div class="chip" data-cat="Chair">Chair</div>
+        <div class="chip" data-cat="Sofa">Sofa</div>
+        <div class="chip" data-cat="Bed">Bed</div>
+        <div class="chip" data-cat="Lighting">Lighting</div>
+        <div class="chip" data-cat="Outdoor">Outdoor</div>
+        <div class="chip" data-cat="Accessories">Accessories</div>
+        <label>Min $ <input id="minPrice" type="number" min="0" step="10" placeholder="0"></label>
+        <label>Max $ <input id="maxPrice" type="number" min="0" step="10" placeholder="9999"></label>
+        <button id="clearFilters" class="btn-outline" type="button">Clear</button>
+      </div>
+
+      <div id="products-grid" class="products-grid" role="list"></div>
+
+      <!-- pagination -->
+      <div class="pager" id="pager" aria-label="Pagination">
+        <button type="button" id="prevBtn">Prev</button>
+        <span class="info" id="pageInfo">Page 1</span>
+        <button type="button" id="nextBtn">Next</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Benefits section (matches screenshot’s vibe) ===== -->
+  <section class="benefits" aria-label="Store benefits">
+    <div class="container benefit-row">
+      <div class="benefit">
+        <div class="icon">🏆</div>
+        <div><h4>High Quality</h4><p>crafted from top materials</p></div>
+      </div>
+      <div class="benefit">
+        <div class="icon">🛡️</div>
+        <div><h4>Warranty Protection</h4><p>over 2 years</p></div>
+      </div>
+      <div class="benefit">
+        <div class="icon">🚚</div>
+        <div><h4>Free Shipping</h4><p>order over $150</p></div>
+      </div>
+      <div class="benefit">
+        <div class="icon">💬</div>
+        <div><h4>24 / 7 Support</h4><p>dedicated support</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer (same as Home) ===== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h2 class="footer-logo">Furniro.</h2>
+        <p>400 University Drive Suite 200 Coral Gables, FL 33134 EGY</p>
+      </div>
+      <div class="footer-col">
+        <h3>Links</h3>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="#">Payment Options</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Privacy Policies</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Newsletter</h3>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter Your Email Address" required>
+          <button type="submit">SUBSCRIBE</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Furniro. All rights reserved.</p></div>
+  </footer>
+
+  <!-- ===== Cart overlay + drawer ===== -->
+  <div id="cartOverlay" class="cart-overlay" hidden></div>
+  <aside id="cartDrawer" class="cart-drawer" aria-hidden="true">
+    <header class="cart-header">
+      <h3>Your Cart</h3>
+      <button id="cartClose" class="cart-close" aria-label="Close">×</button>
+    </header>
+    <div id="cartItems" class="cart-items"></div>
+    <footer class="cart-footer">
+      <div class="cart-total"><span>Total</span><strong id="cartTotal">$0.00</strong></div>
+      <div class="cart-actions">
+        <button id="cartClear" class="btn-outline">Clear</button>
+        <button id="cartCheckout" class="btn-primary">Checkout</button>
+      </div>
+    </footer>
+  </aside>
+
+  <!-- Scripts: reuse home.js for products + cart -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="home.js"></script>
+  <script>
+    // Build category map without touching home.js
+    const CATEGORY_BY_ID = {
+      syltherine: "Chair",
+      leviosa: "Chair",
+      lolito: "Sofa",
+      respira: "Outdoor",
+      grifo: "Lighting",
+      muggo: "Accessories",
+      pingky: "Bed",
+      potty: "Accessories",
+    };
+
+    // Enhance: filter/sort/search + pagination
+    (function(){
+      const grid = document.getElementById('products-grid');
+      const countNum = document.getElementById('countNum');
+      const sortSel = document.getElementById('sortSel');
+      const searchBox = document.getElementById('searchBox');
+      const pageSizeSel = document.getElementById('pageSizeSel');
+      const minPrice = document.getElementById('minPrice');
+      const maxPrice = document.getElementById('maxPrice');
+      const filters = document.getElementById('filters');
+      const clearFilters = document.getElementById('clearFilters');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const pageInfo = document.getElementById('pageInfo');
+
+      let page = 1;
+
+      function withCategory(list){
+        return list.map(p => ({...p, category: CATEGORY_BY_ID[p.id] || 'Accessories'}));
+      }
+
+      function filtered(){
+        let list = window.products ? withCategory([...window.products]) : [];
+        // text search
+        const q = (searchBox.value || '').toLowerCase().trim();
+        if (q) list = list.filter(p => 
+          p.name.toLowerCase().includes(q) || 
+          (p.sub||'').toLowerCase().includes(q) ||
+          (p.category||'').toLowerCase().includes(q)
+        );
+        // category chip
+        const active = filters.querySelector('.chip.active');
+        const cat = active ? active.dataset.cat : 'all';
+        if (cat && cat !== 'all'){
+          list = list.filter(p => (p.category === cat));
+        }
+        // price
+        const min = Number(minPrice.value || 0);
+        const max = Number(maxPrice.value || 0);
+        if (min) list = list.filter(p => (p.price >= min));
+        if (max) list = list.filter(p => (p.price <= max));
+        // sort
+        switch (sortSel.value) {
+          case 'price-asc':  list.sort((a,b)=>a.price-b.price); break;
+          case 'price-desc': list.sort((a,b)=>b.price-a.price); break;
+          case 'name-asc':   list.sort((a,b)=>a.name.localeCompare(b.name)); break;
+          case 'name-desc':  list.sort((a,b)=>b.name.localeCompare(a.name)); break;
+          default: break;
+        }
+        return list;
+      }
+
+      function renderPage(){
+        const size = parseInt(pageSizeSel.value, 10) || 12;
+        const list = filtered();
+        const total = list.length;
+        const pages = Math.max(1, Math.ceil(total / size));
+        if (page > pages) page = pages;
+        const start = (page-1)*size;
+        const end = start + size;
+        const slice = list.slice(start, end);
+
+        if (typeof renderProducts === 'function') renderProducts(slice);
+        if (countNum) countNum.textContent = String(list.length);
+        pageInfo.textContent = 'Page ' + page + ' of ' + pages;
+        prevBtn.disabled = (page <= 1);
+        nextBtn.disabled = (page >= pages);
+      }
+
+      // category chip toggle
+      filters.addEventListener('click', (e)=>{
+        const el = e.target.closest('.chip');
+        if (!el) return;
+        filters.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+        el.classList.add('active');
+        page = 1;
+        renderPage();
+      });
+
+      function resetFilters(){
+        filters.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+        filters.querySelector('[data-cat="all"]').classList.add('active');
+        searchBox.value = '';
+        minPrice.value = '';
+        maxPrice.value = '';
+        sortSel.value = 'default';
+        page = 1;
+        renderPage();
+      }
+
+      clearFilters.addEventListener('click', resetFilters);
+      sortSel.addEventListener('change', ()=>{ page=1; renderPage(); });
+      searchBox.addEventListener('input', ()=>{ page=1; renderPage(); });
+      minPrice.addEventListener('input', ()=>{ page=1; renderPage(); });
+      maxPrice.addEventListener('input', ()=>{ page=1; renderPage(); });
+      pageSizeSel.addEventListener('change', ()=>{ page=1; renderPage(); });
+      prevBtn.addEventListener('click', ()=>{ if(page>1){ page--; renderPage(); }});
+      nextBtn.addEventListener('click', ()=>{ page++; renderPage(); });
+
+      document.addEventListener('DOMContentLoaded', ()=>{
+        // Mark "All" active initially
+        const allChip = filters.querySelector('[data-cat="all"]');
+        if (allChip) allChip.classList.add('active');
+        renderPage();
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Furniro — Contact</title>
+  <link rel="stylesheet" href="home.css"/>
+  <style>
+    /* Contact-only tweaks */
+    .sub-hero {
+      background: url('Images/image\ 1.png') center/cover no-repeat;
+      padding: 70px 0;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .sub-hero h1 { margin:0; font-size:clamp(28px,4vw,40px); font-weight:800; color:#2b2b2b; }
+    .contact-wrap { padding: 28px 0 36px; }
+    .contact-grid {
+      display:grid; gap:24px;
+      grid-template-columns: 1.1fr 1fr;
+    }
+    .card {
+      background:#fff; border:1px solid var(--border); border-radius: 14px; padding: 18px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.04);
+    }
+    .contact-info { display:grid; gap:14px; }
+    .info-row { display:flex; gap:12px; align-items:flex-start; }
+    .info-ico { width:40px; height:40px; border-radius:10px; border:1px solid var(--border); display:grid; place-items:center; background:#fff; }
+    .info-row h4 { margin:0; font-size:16px; }
+    .info-row p  { margin:2px 0 0; color:var(--muted) }
+    .map { border-radius: 12px; overflow: hidden; border:1px solid var(--border) }
+    form .row { display:grid; gap:12px; grid-template-columns: 1fr 1fr; }
+    form .row + .row { margin-top: 12px; }
+    .field { display:flex; flex-direction:column; gap:6px; }
+    .field label { font-weight:600; font-size:14px; }
+    .field input, .field textarea, .field select {
+      height: 42px; border:1px solid var(--border); border-radius: 10px; padding: 10px 12px; outline:none;
+    }
+    .field textarea { min-height: 130px; resize: vertical; }
+    .actions { margin-top: 14px; display:flex; gap:10px; }
+    .btn-primary { background:#B88E2F; color:#fff; border:none; border-radius:10px; padding:10px 16px; cursor:pointer; }
+    .btn-outline { background:#fff; color:#111; border:1px solid var(--border); border-radius:10px; padding:10px 16px; cursor:pointer; }
+    .benefits {
+      background:#fff7e8; margin-top: 28px; padding: 20px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+    }
+    .benefit-row { display:grid; gap:18px; grid-template-columns: repeat(4, minmax(0,1fr)); align-items:center; }
+    .benefit { display:flex; gap:12px; align-items:center; }
+    .benefit .icon { width:46px; height:46px; border-radius:12px; border:1px solid var(--border); display:grid; place-items:center; background:#fff; }
+    .benefit h4{ margin:0; font-size:16px } .benefit p{ margin:0; color:var(--muted); font-size:14px }
+    @media (max-width: 980px){ .contact-grid{ grid-template-columns: 1fr; } .benefit-row{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-row">
+      <a href="home.html" class="brand">
+        <img src="Images/Meubel House_Logos-05.png" alt="Furniro Logo" class="logo-img">
+        <span class="brand-text">Furniro</span>
+      </a>
+
+      <nav class="nav" id="mainNav" aria-label="Primary">
+        <a href="home.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </nav>
+
+      <div class="actions">
+        <button class="icon-btn" aria-label="Account">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M4 20a8 8 0 0 1 16 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        
+
+        <button class="hamburger" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="sub-hero">
+    <div class="container"><h1>Contact</h1></div>
+  </section>
+
+  <!-- Contact content -->
+  <section class="contact-wrap">
+    <div class="container contact-grid">
+      <!-- Left: Form -->
+      <div class="card">
+        <h2 style="margin-top:0">Send us a message</h2>
+        <form id="contactForm" novalidate>
+          <div class="row">
+            <div class="field">
+              <label for="name">Your Name</label>
+              <input id="name" name="name" type="text" placeholder="Ali Gomma" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" type="text" placeholder="How can we help?" required>
+            </div>
+            <div class="field">
+              <label for="topic">Topic</label>
+              <select id="topic" name="topic">
+                <option>General</option>
+                <option>Orders & Shipping</option>
+                <option>Returns</option>
+                <option>Partnerships</option>
+              </select>
+            </div>
+          </div>
+          <div class="row" style="grid-template-columns:1fr;">
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+            </div>
+          </div>
+          <div class="actions">
+            <button type="submit" class="btn-primary">Send Message</button>
+            <button type="reset" class="btn-outline">Clear</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Right: Info & Map -->
+      <div class="card">
+        <h2 style="margin-top:0">Contact Information</h2>
+        <div class="contact-info">
+          <div class="info-row">
+            <div class="info-ico">📍</div>
+            <div><h4>Address</h4><p>400 University Drive Suite 200<br/>Coral Gables, FL 33134 EGY</p></div>
+          </div>
+          <div class="info-row">
+            <div class="info-ico">☎️</div>
+            <div><h4>Phone</h4><p>+1 (305) 555‑0123</p></div>
+          </div>
+          <div class="info-row">
+            <div class="info-ico">✉️</div>
+            <div><h4>Email</h4><p>support@furniro.store</p></div>
+          </div>
+          <div class="info-row">
+            <div class="info-ico">🕓</div>
+            <div><h4>Hours</h4><p>Mon–Fri: 9am–6pm (ET)</p></div>
+          </div>
+        </div>
+        <div class="map" style="margin-top:14px;">
+          <iframe
+            title="Furniro location"
+            width="100%" height="260" style="border:0"
+            loading="lazy" allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3586.638!2d-80.260!3d25.720!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2z!5e0!3m2!1sen!2sus!4v000000">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="benefits" aria-label="Store benefits">
+    <div class="container benefit-row">
+      <div class="benefit"><div class="icon">🏆</div><div><h4>High Quality</h4><p>crafted from top materials</p></div></div>
+      <div class="benefit"><div class="icon">🛡️</div><div><h4>Warranty Protection</h4><p>over 2 years</p></div></div>
+      <div class="benefit"><div class="icon">🚚</div><div><h4>Free Shipping</h4><p>order over $150</p></div></div>
+      <div class="benefit"><div class="icon">💬</div><div><h4>24 / 7 Support</h4><p>dedicated support</p></div></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h2 class="footer-logo">Furniro.</h2>
+        <p>400 University Drive Suite 200 Coral Gables, FL 33134 EGY</p>
+      </div>
+      <div class="footer-col">
+        <h3>Links</h3>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="#">Payment Options</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Privacy Policies</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Newsletter</h3>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter Your Email Address" required>
+          <button type="submit">SUBSCRIBE</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Furniro. All rights reserved.</p></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="home.js"></script>
+  <script>
+    // Simple client-side validation + fake submit
+    const form = document.getElementById('contactForm');
+    form?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = new FormData(form);
+      const missing = ['name','email','subject','message'].filter(k => !(data.get(k)||'').toString().trim());
+      if (missing.length){
+        Swal.fire({ icon:'warning', title:'Please fill all required fields.' });
+        return;
+      }
+      // pretend to send
+      Swal.fire({ icon:'success', title:'Message sent!', text:'We\'ll get back to you soon.' });
+      form.reset();
+    });
+  </script>
+</body>
+</html>

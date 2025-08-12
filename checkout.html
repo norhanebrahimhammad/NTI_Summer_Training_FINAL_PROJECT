@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Furniro — Checkout</title>
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+  <!-- Header same as home -->
+  <header class="header">
+    <div class="container header-row">
+      <a href="home.html" class="brand">
+        <img src="Images/Meubel House_Logos-05.png" alt="Furniro Logo" class="logo-img">
+        <span class="brand-text">Furniro</span>
+      </a>
+
+      <nav class="nav" id="mainNav">
+        <a href="home.html" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Shop</a>
+        <a href="#" class="nav-link">About</a>
+        <a href="#" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="actions">
+        <button class="icon-btn cart" aria-label="Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="9" cy="20" r="1.4" fill="currentColor"/>
+            <circle cx="17" cy="20" r="1.4" fill="currentColor"/>
+            <path d="M3 4h2l2 10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-6H6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="badge" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <section class="checkout-hero">
+    <!-- <img class="checkout-bg" src="Images/Meubel House_Logos-05.png" alt=""/> -->
+    <div class="checkout-overlay">
+      <svg class="co-mark" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 14l6-8 6 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M6 14h12v6H6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      </svg>
+      <h1>Checkout</h1>
+    </div>
+  </section>
+
+  <!-- Checkout content -->
+  <main class="checkout container">
+    <div class="co-grid">
+      <form class="co-form" id="checkoutForm">
+        <h2>Billing details</h2>
+        <div class="row2">
+          <label>First Name<input type="text" required></label>
+          <label>Last Name<input type="text" required></label>
+        </div>
+        <label>Street address<input type="text" required></label>
+        <label>Town / City<input type="text" required></label>
+        <label>ZIP code<input type="text" required></label>
+        <label>Phone<input type="tel" required></label>
+        <label>Email address<input type="email" required></label>
+      </form>
+
+      <aside class="co-summary">
+        <div class="co-summary-inner">
+          <div class="co-row co-head"><span>Product</span><span>Subtotal</span></div>
+          <div id="orderItems" class="order-items"></div>
+          <div class="co-row"><span>Subtotal</span><span id="orderSubtotal">$0.00</span></div>
+          <div class="co-row co-total"><span>Total</span><strong id="orderTotal" class="gold">$0.00</strong></div>
+          <hr>
+          <label class="cod"><input type="radio" name="pay" checked><span>Cash On Delivery</span></label>
+          <p class="privacy">Your personal data will be used to support your experience throughout this website, for account management and other purposes described in our <a href="#">privacy policy</a>.</p>
+          <button id="placeOrder" class="btn-primary wide">Place order</button>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="checkout.js"></script>
+</body>
+</html>
